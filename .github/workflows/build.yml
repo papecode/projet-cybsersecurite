@@ -1,4 +1,4 @@
-name: Test App
+name: "sonar_cloud_scan_github_actions"
 on:
   workflow_dispatch:
 
