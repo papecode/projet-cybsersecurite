@@ -7,7 +7,7 @@ class TestMultiplyFunction(unittest.TestCase):
 
     def test_multiply_positive_numbers(self):
         result = multiply(3, 5)
-        self.assertEqual(result, 15)
+        self.assertNotEqual(result, 15)
 
     def test_multiply_negative_numbers(self):
         result = multiply(-3, -5)
