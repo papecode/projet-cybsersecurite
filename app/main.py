@@ -5,6 +5,9 @@ import os
 load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__)
+# Make sure disabling CSRF protection is safe here.
+app.config['WTF_CSRF_ENABLED'] = False
+
 
 @app.route('/<random_string>')
 def return_backwards_string(random_string):
