@@ -1,18 +1,25 @@
+# main_test.py
+
 import unittest
-from main import app
+from main import subtract
 
-class TestApp(unittest.TestCase):
+class TestSubtractFunction(unittest.TestCase):
 
-    def setUp(self):
-        self.app = app.test_client()
+    def test_subtract_positive_numbers(self):
+        result = subtract(5, 3)
+        self.assertEqual(result, 2)
 
-    def test_return_backwards_string(self):
-        response = self.app.get('/Hello')
-        self.assertEqual(response.data.decode('utf-8'), 'olleH')
+    def test_subtract_negative_numbers(self):
+        result = subtract(-3, -5)
+        self.assertEqual(result, 2)
 
-    def test_get_mode(self):
-        response = self.app.get('/get-mode')
-        self.assertEqual(response.data.decode('utf-8'), 'dev')
+    def test_subtract_mixed_numbers(self):
+        result = subtract(3, -5)
+        self.assertEqual(result, 8)
+
+    def test_subtract_zero(self):
+        result = subtract(5, 0)
+        self.assertEqual(result, 5)
 
 if __name__ == '__main__':
     unittest.main()
