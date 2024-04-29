@@ -1,15 +1,25 @@
+# main_test.py
+
 import unittest
-import os
-from main import return_backwards_string, get_mode
+from main import multiply
 
-class TestMain(unittest.TestCase):
-    def test_return_backwards_string(self):
-        random_string = "Hello"
-        random_string_reversed = "olleH"
-        self.assertEqual(random_string_reversed, return_backwards_string(random_string))
+class TestMultiplyFunction(unittest.TestCase):
 
-    def test_get_mode(self):
-        self.assertEqual(os.environ.get("MODE"), get_mode())
+    def test_multiply_positive_numbers(self):
+        result = multiply(3, 5)
+        self.assertEqual(result, 15)
 
-if __name__ == "__main__":
+    def test_multiply_negative_numbers(self):
+        result = multiply(-3, -5)
+        self.assertEqual(result, 15)
+
+    def test_multiply_mixed_numbers(self):
+        result = multiply(3, -5)
+        self.assertEqual(result, -15)
+
+    def test_multiply_by_zero(self):
+        result = multiply(5, 0)
+        self.assertEqual(result, 0)
+
+if __name__ == '__main__':
     unittest.main()
