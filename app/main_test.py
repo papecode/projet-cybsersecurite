@@ -11,7 +11,9 @@ class TestMain(unittest.TestCase):
                         return_backwards_string(random_string))
 
     def test_get_mode(self):
-        self.assertEqual(os.environ.get("MODE"), get_mode())
+        # Simuler une valeur incorrecte pour la variable d'environnement MODE
+        os.environ["MODE"] = "incorrect_value"
+        self.assertNotEqual(os.environ.get("MODE"), get_mode())
 
 
 if __name__ == "__main__":
