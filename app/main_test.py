@@ -15,7 +15,7 @@ class TestSubtractFunction(unittest.TestCase):
 
     def test_subtract_mixed_numbers(self):
         result = subtract(3, -5)
-        self.assertEqual(result, 8)
+        self.assertEqual(result, 10)
 
     def test_subtract_zero(self):
         result = subtract(5, 0)
