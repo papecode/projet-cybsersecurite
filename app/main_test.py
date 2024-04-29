@@ -1,25 +1,15 @@
-# main_test.py
-
 import unittest
-from main import subtract
+import os
+from main import return_backwards_string, get_mode
 
-class TestSubtractFunction(unittest.TestCase):
+class TestMain(unittest.TestCase):
+    def test_return_backwards_string(self):
+        random_string = "Hello"
+        random_string_reversed = "olleH"
+        self.assertEqual(random_string_reversed, return_backwards_string(random_string))
 
-    def test_subtract_positive_numbers(self):
-        result = subtract(5, 3)
-        self.assertEqual(result, 2)
+    def test_get_mode(self):
+        self.assertEqual(os.environ.get("MODE"), get_mode())
 
-    def test_subtract_negative_numbers(self):
-        result = subtract(-3, -5)
-        self.assertEqual(result, 2)
-
-    def test_subtract_mixed_numbers(self):
-        result = subtract(3, -5)
-        self.assertEqual(result, 10)
-
-    def test_subtract_zero(self):
-        result = subtract(5, 0)
-        self.assertEqual(result, 5)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
