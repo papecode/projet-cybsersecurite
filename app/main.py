@@ -6,6 +6,7 @@ load_dotenv()  # Charger les variables d'environnement depuis le fichier .env
 
 app = Flask(__name__)
 
+app.config['WTF_CSRF_ENABLED'] = False
 
 @app.route('/<random_string>')
 def return_backwards_string(random_string):
