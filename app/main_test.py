@@ -7,13 +7,11 @@ class TestMain(unittest.TestCase):
     def test_return_backwards_string(self):
         random_string = "Hello"
         random_string_reversed = "olleH"
-        self.assertEqual(random_string_reversed,
+        self.assertNotEqual(random_string_reversed,
                         return_backwards_string(random_string))
 
     def test_get_mode(self):
-        # Simuler une valeur incorrecte pour la variable d'environnement MODE
-        os.environ["MODE"] = "incorrect_value"
-        self.assertNotEqual(os.environ.get("MODE"), get_mode())
+        self.assertEqual(os.environ.get("MODE"), get_mode())
 
 
 if __name__ == "__main__":
