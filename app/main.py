@@ -1,22 +1,25 @@
-from flask import FLask
-from dotenv import load_dotenv
-import os
+# main_test.py
 
-load_dotenv() # Load environment variables from .env file
+import unittest
+from main import add
 
-app = Flask(__name__)
+class TestAddFunction(unittest.TestCase):
 
+    def test_add_positive_numbers(self):
+        result = add(3, 5)
+        self.assertEqual(result, 8)
 
-@app.route('/<random_string>')
-def return_backwards_string(random_string):
-    return "".join(reversed(random_string))
+    def test_add_negative_numbers(self):
+        result = add(-3, -5)
+        self.assertEqual(result, -10)
 
+    def test_add_mixed_numbers(self):
+        result = add(3, -5)
+        self.assertEqual(result, -2)
 
+    def test_add_zero(self):
+        result = add(0, 5)
+        self.assertEqual(result, 5)
 
-@app.route('/get-mode')
-def get_mode():
-    return os.environ.get("MODE")
-
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0' , port=8080)
+if __name__ == '__main__':
+    unittest.main()
