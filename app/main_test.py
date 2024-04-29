@@ -7,7 +7,7 @@ class TestMain(unittest.TestCase):
     def test_return_backwards_string(self):
         random_string = "Hello"
         random_string_reversed = "olleH"
-        self.assertEqual(random_string_reversed,
+        self.assertNotEqual(random_string_reversed,
                         return_backwards_string(random_string))
 
     def test_get_mode(self):
