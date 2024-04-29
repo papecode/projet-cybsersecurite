@@ -1,25 +1,18 @@
-# main_test.py
-
 import unittest
-from main import add
+from main import app
 
-class TestAddFunction(unittest.TestCase):
+class TestApp(unittest.TestCase):
 
-    def test_add_positive_numbers(self):
-        result = add(3, 5)
-        self.assertEqual(result, 8)
+    def setUp(self):
+        self.app = app.test_client()
 
-    def test_add_negative_numbers(self):
-        result = add(-3, -5)
-        self.assertEqual(result, -8)
+    def test_return_backwards_string(self):
+        response = self.app.get('/Hello')
+        self.assertEqual(response.data.decode('utf-8'), 'olleH')
 
-    def test_add_mixed_numbers(self):
-        result = add(3, -5)
-        self.assertEqual(result, -2)
-
-    def test_add_zero(self):
-        result = add(0, 5)
-        self.assertEqual(result, 5)
+    def test_get_mode(self):
+        response = self.app.get('/get-mode')
+        self.assertEqual(response.data.decode('utf-8'), 'dev')
 
 if __name__ == '__main__':
     unittest.main()
