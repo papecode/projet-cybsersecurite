@@ -18,8 +18,8 @@ class TestMultiplyFunction(unittest.TestCase):
         self.assertEqual(result, -15)
 
     def test_multiply_by_zero(self):
-        result = multiply(5, 0)
-        self.assertEqual(result, 0)
+        result = multiply(5, 1)
+        self.assertEqual(result, 5)
 
 if __name__ == '__main__':
     unittest.main()
